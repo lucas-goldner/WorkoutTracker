@@ -26,7 +26,7 @@
                                 </state>
                                 <connections>
                                     <action selector="StartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qcm-gL-MSx"/>
-                                    <segue destination="uVm-Fh-7gC" kind="show" id="Uzv-nY-uWu"/>
+                                    <segue destination="uVm-Fh-7gC" kind="show" destinationCreationSelector="swiftUIAction:" id="Uzv-nY-uWu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -44,7 +44,7 @@
         <!--Hosting Controller-->
         <scene sceneID="RlV-km-m2P">
             <objects>
-                <hostingController id="uVm-Fh-7gC" sceneMemberID="viewController">
+                <hostingController modalPresentationStyle="fullScreen" id="uVm-Fh-7gC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="t2t-HP-uH2"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2P-cM-3fJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

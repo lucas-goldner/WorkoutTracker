@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import SwiftUI
 
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var StartStyle: UIButton!
     @IBAction func StartButton(_ sender: Any) {
+    }
+    
+    @IBSegueAction func swiftUIAction(_ coder: NSCoder) -> UIViewController? {
+        return UIHostingController(coder: coder, rootView: WorkoutView())
     }
     
     override func viewDidLoad() {
