@@ -16,8 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5H-an-SVX">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5H-an-SVX">
                                 <rect key="frame" x="46" y="421" width="323" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Start Workout Tracker">
@@ -31,12 +32,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="H5H-an-SVX" secondAttribute="trailing" constant="45" id="7YO-uk-JMy"/>
-                            <constraint firstItem="H5H-an-SVX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="377" id="9i8-p1-daG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="H5H-an-SVX" secondAttribute="bottom" constant="387" id="HET-QR-xnC"/>
-                            <constraint firstItem="H5H-an-SVX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="I92-04-yyp"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="StartStyle" destination="H5H-an-SVX" id="lHd-Jj-hU1"/>
