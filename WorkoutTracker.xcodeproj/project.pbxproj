@@ -15,6 +15,7 @@
 		4D472A32259BC6A700730564 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D472A31259BC6A700730564 /* HomeViewController.swift */; };
 		4D472A38259BC9D000730564 /* WorkoutSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D472A37259BC9D000730564 /* WorkoutSelectView.swift */; };
 		4DA0C350259D1F4600CAD48A /* StartWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA0C34F259D1F4600CAD48A /* StartWorkoutView.swift */; };
+		4DA0C353259D25F100CAD48A /* ScrollableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA0C352259D25F100CAD48A /* ScrollableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4D472A31259BC6A700730564 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4D472A37259BC9D000730564 /* WorkoutSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSelectView.swift; sourceTree = "<group>"; };
 		4DA0C34F259D1F4600CAD48A /* StartWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutView.swift; sourceTree = "<group>"; };
+		4DA0C352259D25F100CAD48A /* ScrollableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				4D472A37259BC9D000730564 /* WorkoutSelectView.swift */,
 				4DA0C34F259D1F4600CAD48A /* StartWorkoutView.swift */,
+				4DA0C352259D25F100CAD48A /* ScrollableView.swift */,
 			);
 			path = SwiftUIViews;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D472A1D259BC5D900730564 /* AppDelegate.swift in Sources */,
+				4DA0C353259D25F100CAD48A /* ScrollableView.swift in Sources */,
 				4D472A1F259BC5D900730564 /* SceneDelegate.swift in Sources */,
 				4D472A32259BC6A700730564 /* HomeViewController.swift in Sources */,
 				4DA0C350259D1F4600CAD48A /* StartWorkoutView.swift in Sources */,

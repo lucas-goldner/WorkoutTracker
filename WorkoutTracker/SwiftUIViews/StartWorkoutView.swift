@@ -9,10 +9,39 @@ import SwiftUI
 
 struct StartWorkoutView: View {
     let workout: Array<Any>
+    @State private var contentOffset: CGPoint = .zero
     
     var body: some View {
-        ForEach(0 ..< Workout.count) { value in
-            Text((workout[value] as! Exercise).name).foregroundColor(.black)
+        ZStack {
+            Color.black.ignoresSafeArea()
+            HStack {
+                VStack {
+                    Text("[]").foregroundColor(.white)
+                    Text("[]").foregroundColor(.white)
+                    Text("[]").foregroundColor(.white)
+                }
+                
+                ScrollableView(self.$contentOffset, animationDuration: 0.5) {
+                    VStack(spacing: 5) {
+                       
+                        Button(action: {
+                            self.contentOffset = CGPoint(x: 0, y: 100)
+                        }) {
+                            Text("scroll to bottom")
+                        }
+                        ForEach(0 ..< Workout.count) { value in
+                            Text((workout[value] as! Exercise).name).foregroundColor(.white)
+                        }
+                        Button(action: {
+                            self.contentOffset = CGPoint(x: 0, y: 0)
+                        }) {
+                            Text("scroll to top")
+                        }
+                    }
+                }
+                
+                
+            }
         }
     }
 }
