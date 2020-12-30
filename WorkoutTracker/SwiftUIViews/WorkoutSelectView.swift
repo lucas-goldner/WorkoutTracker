@@ -19,9 +19,18 @@ let Workout = [
     Exercise(name: "Sit-up", reps: 20, time: 60),
 ]
 
-struct WorkoutView: View {
+struct DetailView : View {
+    let value: String
+
+    var body : some View {
+        Text("Full View: \(value)")
+    }
+}
+
+struct WorkoutSelectView: View {
     var body: some View {
-        ZStack {
+        NavigationView {
+            ZStack {
             Color.black.ignoresSafeArea()
             VStack{
                 Text("Current Workout").font(.title).foregroundColor(.white)
@@ -33,16 +42,14 @@ struct WorkoutView: View {
                     Text(Workout[value].name).foregroundColor(.white)
                 }
                 Spacer()
-                Button(action: {
-                    hey()
-                }) {
-                    Text("Start Workout").frame(width: 200 , height: 50, alignment: .center)
-                } .background(Color.blue)
-                .foregroundColor(Color.white)
-                .cornerRadius(5)
+                NavigationLink(destination: StartWorkoutView(),
+                label: { Text("Start Workout").frame(width: 200 , height: 50, alignment: .center) }).background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(5)
             }
         }
     }
+}
 }
 
 func hey() {
@@ -51,6 +58,6 @@ func hey() {
 
 struct WorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutView()
+        WorkoutSelectView()
     }
 }

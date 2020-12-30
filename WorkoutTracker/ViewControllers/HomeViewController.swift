@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBSegueAction func swiftUIAction(_ coder: NSCoder) -> UIViewController? {
-        return UIHostingController(coder: coder, rootView: WorkoutView())
+        return UIHostingController(coder: coder, rootView: WorkoutSelectView())
     }
     
     override func viewDidLoad() {

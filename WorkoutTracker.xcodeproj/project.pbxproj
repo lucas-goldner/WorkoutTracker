@@ -13,7 +13,8 @@
 		4D472A26259BC5D900730564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D472A25259BC5D900730564 /* Assets.xcassets */; };
 		4D472A29259BC5D900730564 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D472A27259BC5D900730564 /* LaunchScreen.storyboard */; };
 		4D472A32259BC6A700730564 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D472A31259BC6A700730564 /* HomeViewController.swift */; };
-		4D472A38259BC9D000730564 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D472A37259BC9D000730564 /* WorkoutView.swift */; };
+		4D472A38259BC9D000730564 /* WorkoutSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D472A37259BC9D000730564 /* WorkoutSelectView.swift */; };
+		4DA0C350259D1F4600CAD48A /* StartWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA0C34F259D1F4600CAD48A /* StartWorkoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,8 @@
 		4D472A28259BC5D900730564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D472A2A259BC5D900730564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D472A31259BC6A700730564 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		4D472A37259BC9D000730564 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
+		4D472A37259BC9D000730564 /* WorkoutSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSelectView.swift; sourceTree = "<group>"; };
+		4DA0C34F259D1F4600CAD48A /* StartWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +83,8 @@
 		4D472A36259BC9B600730564 /* SwiftUIViews */ = {
 			isa = PBXGroup;
 			children = (
-				4D472A37259BC9D000730564 /* WorkoutView.swift */,
+				4D472A37259BC9D000730564 /* WorkoutSelectView.swift */,
+				4DA0C34F259D1F4600CAD48A /* StartWorkoutView.swift */,
 			);
 			path = SwiftUIViews;
 			sourceTree = "<group>";
@@ -159,7 +162,8 @@
 				4D472A1D259BC5D900730564 /* AppDelegate.swift in Sources */,
 				4D472A1F259BC5D900730564 /* SceneDelegate.swift in Sources */,
 				4D472A32259BC6A700730564 /* HomeViewController.swift in Sources */,
-				4D472A38259BC9D000730564 /* WorkoutView.swift in Sources */,
+				4DA0C350259D1F4600CAD48A /* StartWorkoutView.swift in Sources */,
+				4D472A38259BC9D000730564 /* WorkoutSelectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
