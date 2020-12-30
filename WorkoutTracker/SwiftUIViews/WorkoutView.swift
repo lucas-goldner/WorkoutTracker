@@ -33,9 +33,20 @@ struct WorkoutView: View {
                     Text(Workout[value].name).foregroundColor(.white)
                 }
                 Spacer()
+                Button(action: {
+                    hey()
+                }) {
+                    Text("Start Workout").frame(width: 200 , height: 50, alignment: .center)
+                } .background(Color.blue)
+                .foregroundColor(Color.white)
+                .cornerRadius(5)
             }
         }
     }
+}
+
+func hey() {
+    print("hey")
 }
 
 struct WorkoutView_Previews: PreviewProvider {
