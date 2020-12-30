@@ -9,7 +9,19 @@ import SwiftUI
 
 struct WorkoutView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.black.ignoresSafeArea()
+            VStack{
+                Text("Current Workout").font(.title).foregroundColor(.white)
+                Text("Back Workout").foregroundColor(.white)
+                Spacer()
+                Text("Cooles Bild").foregroundColor(.white)
+                Spacer()
+                ForEach((1...10).reversed(), id: \.self) {
+                    Text("\($0)…").foregroundColor(.white)
+                }
+            }
+        }
     }
 }
 
