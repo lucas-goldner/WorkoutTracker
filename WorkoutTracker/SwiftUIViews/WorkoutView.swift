@@ -27,7 +27,7 @@ struct WorkoutView: View {
                 Text("Current Workout").font(.title).foregroundColor(.white)
                 Text("Back Workout").foregroundColor(.white)
                 Spacer()
-                Text("Cooles Bild").foregroundColor(.white)
+                Image("workout").cornerRadius(30)
                 Spacer()
                 ForEach(0 ..< Workout.count) { value in
                     Text(Workout[value].name).foregroundColor(.white)
