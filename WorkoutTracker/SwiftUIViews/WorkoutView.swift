@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+struct Exercise {
+    var name: String
+    var reps: Int
+    var time: Int
+}
+
+let Workout = [
+    Exercise(name: "Pull-up", reps: 10, time: 45),
+    Exercise(name: "Push-up", reps: 10, time: 30),
+    Exercise(name: "Sit-up", reps: 20, time: 60),
+]
+
 struct WorkoutView: View {
     var body: some View {
         ZStack {
@@ -17,9 +29,10 @@ struct WorkoutView: View {
                 Spacer()
                 Text("Cooles Bild").foregroundColor(.white)
                 Spacer()
-                ForEach((1...10).reversed(), id: \.self) {
-                    Text("\($0)…").foregroundColor(.white)
+                ForEach(0 ..< Workout.count) { value in
+                    Text(Workout[value].name).foregroundColor(.white)
                 }
+                Spacer()
             }
         }
     }
