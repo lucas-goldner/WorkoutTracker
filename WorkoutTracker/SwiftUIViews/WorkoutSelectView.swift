@@ -42,7 +42,7 @@ struct WorkoutSelectView: View {
                     Text(Workout[value].name).foregroundColor(.white)
                 }
                 Spacer()
-                NavigationLink(destination: StartWorkoutView(),
+                NavigationLink(destination: StartWorkoutView(workout: Workout),
                 label: { Text("Start Workout").frame(width: 200 , height: 50, alignment: .center) }).background(Color.blue)
                     .foregroundColor(Color.white)
                     .cornerRadius(5)
