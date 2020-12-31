@@ -16,31 +16,56 @@ struct StartWorkoutView: View {
             Color.black.ignoresSafeArea()
             HStack {
                 VStack {
-                    Text("[]").foregroundColor(.white)
-                    Text("[]").foregroundColor(.white)
-                    Text("[]").foregroundColor(.white)
+                    ForEach(0 ..< Workout.count) { value in
+                        Rectangle().frame(width: 10, height: CGFloat(workout.count)*20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(50).foregroundColor(.gray)
+                    }
                 }
                 
                 ScrollableView(self.$contentOffset, animationDuration: 0.5) {
                     VStack(spacing: 5) {
-                       
-                        Button(action: {
-                            self.contentOffset = CGPoint(x: 0, y: 100)
-                        }) {
-                            Text("scroll to bottom")
-                        }
-                        ForEach(0 ..< Workout.count) { value in
-                            Text((workout[value] as! Exercise).name).foregroundColor(.white)
-                        }
-                        Button(action: {
-                            self.contentOffset = CGPoint(x: 0, y: 0)
-                        }) {
-                            Text("scroll to top")
-                        }
+                            VStack {
+                                HStack(alignment: .center, spacing: -250) {
+                                    Spacer()
+                                    VStack {
+                                        ForEach(0 ..< Workout.count) { value in
+                                            Text((workout[value] as! Exercise).name).foregroundColor(.white)
+                                        }
+                                    }
+                                    Spacer()
+                                    Spacer()
+                                    VStack{
+                                        Button(action: {
+                                           print("question")
+                                        }) {
+                                            Image("question").scaleEffect(CGSize(width: 0.4, height: 0.4))
+                                        }
+                                        Button(action: {
+                                           print("cancel")
+                                        }) {
+                                            Image("cancel").scaleEffect(CGSize(width: 0.2, height: 0.2)).colorInvert()
+                                        }
+                                      
+                                    }
+                                    
+                                }
+                                
+                                
+                                Image("workout")
+                                Button(action: {
+                                    self.contentOffset = CGPoint(x: 0, y: 100)
+                                }) {
+                                    Text("scroll to bottom")
+                                }
+                               
+                                Button(action: {
+                                    self.contentOffset = CGPoint(x: 0, y: 0)
+                                }) {
+                                    Text("scroll to top")
+                                }
+                            }
                     }
                 }
-                
-                
+               
             }
         }
     }
