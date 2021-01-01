@@ -23,6 +23,7 @@ struct StartWorkoutView: View {
     let workout: Array<Any>
     let height = UIScreen.main.bounds.size.height
     @State private var contentOffset: CGPoint = .zero
+    var closeDate = Date(timeIntervalSinceNow: 60.0)
     
     func startTracker() {
         print("Yo")
@@ -87,7 +88,8 @@ struct StartWorkoutView: View {
                                             }.padding(.trailing, -110)
                                         }
                                         Image("workout").cornerRadius(20).scaleEffect(CGSize(width: 1.3, height: 1.3))
-                                        Text(String((workout[value] as! Exercise).time)).foregroundColor(.white).font(.largeTitle).padding(.top, 30)
+                                       
+                                        Text(Date(timeIntervalSinceNow: (workout[value] as! Exercise).time), style: .relative).foregroundColor(.white).font(.largeTitle).padding(.top, 30)
                                         Button(action: {nextExercise()
                                         }) {
                                             Text("Next Exercise").foregroundColor(.white)
@@ -106,9 +108,9 @@ struct StartWorkoutView: View {
 
 struct StartWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        StartWorkoutView(workout: [Exercise(name: "Pull-up", reps: 10, time: 45, rest: 45),
-                                   Exercise(name: "Push-up", reps: 10, time: 30, rest: 45),
-                                   Exercise(name: "Sit-up", reps: 20, time: 60, rest: 45),])
+        StartWorkoutView(workout: [Exercise(name: "Pull-up", reps: 10, time: 45.0, rest: 45),
+                                   Exercise(name: "Push-up", reps: 10, time: 30.0, rest: 45),
+                                   Exercise(name: "Sit-up", reps: 20, time: 60.0, rest: 45),])
     }
 }
 
