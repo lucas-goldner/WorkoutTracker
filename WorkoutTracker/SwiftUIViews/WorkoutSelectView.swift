@@ -11,12 +11,13 @@ struct Exercise {
     var name: String
     var reps: Int
     var time: Int
+    var rest: Int
 }
 
 let Workout = [
-    Exercise(name: "Pull-up", reps: 10, time: 45),
-    Exercise(name: "Push-up", reps: 10, time: 30),
-    Exercise(name: "Sit-up", reps: 20, time: 60),
+    Exercise(name: "Pull-up", reps: 10, time: 45, rest: 45),
+    Exercise(name: "Push-up", reps: 10, time: 30, rest: 45),
+    Exercise(name: "Sit-up", reps: 20, time: 60, rest: 45),
 ]
 
 struct DetailView : View {

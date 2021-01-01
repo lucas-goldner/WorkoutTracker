@@ -36,15 +36,19 @@ struct StartWorkoutView: View {
                 ScrollableView(self.$contentOffset, animationDuration: 0.5) {
                     VStack(spacing: 5) {
                         VStack {
-                            VStack(spacing: 500) {
+                            VStack(spacing: 170) {
                                 ForEach(0 ..< Workout.count) { value in
                                     VStack(spacing: 30){
                                         HStack(alignment: .firstTextBaseline, spacing: 0) {
                                             VStack(spacing: 20) {
                                                 Text((workout[value] as! Exercise).name).font(.system(size: 60)).foregroundColor(.white)
-                                                Text((workout[value] as! Exercise).name).foregroundColor(.white)
+                                                HStack {
+                                                    Text(String((workout[value] as! Exercise).reps)).foregroundColor(.white)
+                                                    Text((workout[value] as! Exercise).name).foregroundColor(.white)
+                                                }
+                                                
                                             }
-                                            VStack(spacing: -50){
+                                            VStack(spacing: 0){
                                                 Button(action: {print("question")
                                                 }) {
                                                     Image("question").scaleEffect(CGSize(width: 0.4, height: 0.4))
@@ -58,6 +62,11 @@ struct StartWorkoutView: View {
                                             }.padding(.trailing, -110)
                                         }
                                         Image("workout").cornerRadius(20).scaleEffect(CGSize(width: 1.3, height: 1.3))
+                                        Text(String((workout[value] as! Exercise).time)).foregroundColor(.white).font(.largeTitle).padding(.top, 30)
+                                        Button(action: {print("question")
+                                        }) {
+                                            Text("Next Exercise").foregroundColor(.white)
+                                        }.padding(.all, 20).padding(.horizontal, 80).background(Color.green).cornerRadius(20)
                                     }
                                 }
                                 
@@ -72,8 +81,8 @@ struct StartWorkoutView: View {
 
 struct StartWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        StartWorkoutView(workout: [Exercise(name: "Pull-up", reps: 10, time: 45),
-                                   Exercise(name: "Push-up", reps: 10, time: 30),
-                                   Exercise(name: "Sit-up", reps: 20, time: 60),])
+        StartWorkoutView(workout: [Exercise(name: "Pull-up", reps: 10, time: 45, rest: 45),
+                                   Exercise(name: "Push-up", reps: 10, time: 30, rest: 45),
+                                   Exercise(name: "Sit-up", reps: 20, time: 60, rest: 45),])
     }
 }
