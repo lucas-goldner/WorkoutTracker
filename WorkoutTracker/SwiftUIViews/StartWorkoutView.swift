@@ -23,6 +23,24 @@ struct StartWorkoutView: View {
     let workout: Array<Any>
     @State private var contentOffset: CGPoint = .zero
     
+    
+    func eachSecond() {
+//      seconds += 1
+//      updateDisplay()
+    }
+    
+//    private func updateDisplay() {
+//      let formattedDistance = FormatDisplay.distance(distance)
+//      let formattedTime = FormatDisplay.time(seconds)
+//      let formattedPace = FormatDisplay.pace(distance: distance,
+//                                             seconds: seconds,
+//                                             outputUnit: UnitSpeed.minutesPerMile)
+//
+//      distanceLabel.text = "\(formattedDistance)"
+//      timeLabel.text = "\(formattedTime)"
+//      paceLabel.text = "\(formattedPace)"
+//    }
+    
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
@@ -38,6 +56,7 @@ struct StartWorkoutView: View {
                         VStack {
                             VStack(spacing: 170) {
                                 ForEach(0 ..< Workout.count) { value in
+                                   
                                     VStack(spacing: 30){
                                         HStack(alignment: .firstTextBaseline, spacing: 0) {
                                             VStack(spacing: 20) {
@@ -86,3 +105,4 @@ struct StartWorkoutView_Previews: PreviewProvider {
                                    Exercise(name: "Sit-up", reps: 20, time: 60, rest: 45),])
     }
 }
+
