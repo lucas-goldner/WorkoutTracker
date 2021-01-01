@@ -21,8 +21,16 @@ import SwiftUI
 
 struct StartWorkoutView: View {
     let workout: Array<Any>
+    let height = UIScreen.main.bounds.size.height
     @State private var contentOffset: CGPoint = .zero
     
+    func startTracker() {
+        print("Yo")
+    }
+    
+    func nextExercise() {
+        self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-100))
+    }
     
     func eachSecond() {
 //      seconds += 1
@@ -54,9 +62,8 @@ struct StartWorkoutView: View {
                 ScrollableView(self.$contentOffset, animationDuration: 0.5) {
                     VStack(spacing: 5) {
                         VStack {
-                            VStack(spacing: 170) {
+                            LazyVStack(spacing: 170) {
                                 ForEach(0 ..< Workout.count) { value in
-                                   
                                     VStack(spacing: 30){
                                         HStack(alignment: .firstTextBaseline, spacing: 0) {
                                             VStack(spacing: 20) {
@@ -65,7 +72,6 @@ struct StartWorkoutView: View {
                                                     Text(String((workout[value] as! Exercise).reps)).foregroundColor(.white)
                                                     Text((workout[value] as! Exercise).name).foregroundColor(.white)
                                                 }
-                                                
                                             }
                                             VStack(spacing: 0){
                                                 Button(action: {print("question")
@@ -82,19 +88,19 @@ struct StartWorkoutView: View {
                                         }
                                         Image("workout").cornerRadius(20).scaleEffect(CGSize(width: 1.3, height: 1.3))
                                         Text(String((workout[value] as! Exercise).time)).foregroundColor(.white).font(.largeTitle).padding(.top, 30)
-                                        Button(action: {print("question")
+                                        Button(action: {nextExercise()
                                         }) {
                                             Text("Next Exercise").foregroundColor(.white)
                                         }.padding(.all, 20).padding(.horizontal, 80).background(Color.green).cornerRadius(20)
                                     }
                                 }
-                                
                             }
                         }
                     }
                 }
             }
-        }
+        }.onAppear {
+        startTracker()}
     }
 }
 
