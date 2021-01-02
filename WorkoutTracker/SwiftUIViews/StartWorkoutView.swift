@@ -25,12 +25,22 @@ struct StartWorkoutView: View {
     @State private var contentOffset: CGPoint = .zero
     var closeDate = Date(timeIntervalSinceNow: 60.0)
     
+    func determineTime(time:Double) -> Date {
+        let timeLeft = Date(timeIntervalSinceNow: time)
+        return timeLeft
+    }
+    
     func startTracker() {
         print("Yo")
     }
     
     func nextExercise() {
-        self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-100))
+        print(height)
+        if(height == 896) {
+            self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-170))
+        } else if(height == 844.0) {
+            self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-100))
+        }
     }
     
     func eachSecond() {
@@ -89,7 +99,7 @@ struct StartWorkoutView: View {
                                         }
                                         Image("workout").cornerRadius(20).scaleEffect(CGSize(width: 1.3, height: 1.3))
                                        
-                                        Text(Date(timeIntervalSinceNow: (workout[value] as! Exercise).time), style: .relative).foregroundColor(.white).font(.largeTitle).padding(.top, 30)
+                                        Text(determineTime(time: ((workout[value] as! Exercise).time)), style: .relative).foregroundColor(.white).font(.largeTitle).padding(.top, 30)
                                         Button(action: {nextExercise()
                                         }) {
                                             Text("Next Exercise").foregroundColor(.white)
