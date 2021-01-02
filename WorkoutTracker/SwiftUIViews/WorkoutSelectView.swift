@@ -18,6 +18,7 @@ let Workout = [
     Exercise(name: "Pull-up", reps: 10, time: 45.0, rest: 45),
     Exercise(name: "Push-up", reps: 10, time: 30.0, rest: 45),
     Exercise(name: "Sit-up", reps: 20, time: 60.0, rest: 45),
+
 ]
 
 struct DetailView : View {

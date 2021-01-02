@@ -60,15 +60,25 @@ struct StartWorkoutView: View {
 //      paceLabel.text = "\(formattedPace)"
 //    }
     
+    func barHeight(bars: Int) -> CGFloat {
+        if(bars<=3){
+            return 60;
+        } else if(bars<=10) {
+            return 30;
+        } else {
+            return 20;
+        }
+    }
+    
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
             HStack {
                 VStack {
                     ForEach(0 ..< Workout.count) { value in
-                        Rectangle().frame(width: 10, height: CGFloat(workout.count)*20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(50).foregroundColor(.gray)
+                        Rectangle().frame(width: 10, height: barHeight(bars: workout.count), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(50).foregroundColor(.gray)
                     }
-                }
+                }.padding(.top, -50)
                 
                 ScrollableView(self.$contentOffset, animationDuration: 0.5) {
                     VStack(spacing: 5) {
@@ -120,7 +130,8 @@ struct StartWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
         StartWorkoutView(workout: [Exercise(name: "Pull-up", reps: 10, time: 45.0, rest: 45),
                                    Exercise(name: "Push-up", reps: 10, time: 30.0, rest: 45),
-                                   Exercise(name: "Sit-up", reps: 20, time: 60.0, rest: 45),])
+                                   Exercise(name: "Sit-up", reps: 20, time: 60.0, rest: 45),
+        ])
     }
 }
 
