@@ -21,6 +21,7 @@ import SwiftUI
 
 struct StartWorkoutView: View {
     let workout: Array<Any>
+    var workoutColours = [Color](repeating: .white, count: Workout.count)
     let height = UIScreen.main.bounds.size.height
     @State private var contentOffset: CGPoint = .zero
     var closeDate = Date(timeIntervalSinceNow: 60.0)
@@ -35,7 +36,7 @@ struct StartWorkoutView: View {
     }
     
     func nextExercise() {
-        print(height)
+        
         if(height == 896) {
             self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-170))
         } else if(height == 844.0) {
@@ -76,7 +77,7 @@ struct StartWorkoutView: View {
             HStack {
                 VStack {
                     ForEach(0 ..< Workout.count) { value in
-                        Rectangle().frame(width: 10, height: barHeight(bars: workout.count), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(50).foregroundColor(.gray)
+                        Rectangle().frame(width: 10, height: barHeight(bars: workout.count), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(50).foregroundColor(workoutColours[value])
                     }
                 }.padding(.top, -50)
                 
