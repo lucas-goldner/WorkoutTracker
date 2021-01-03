@@ -24,13 +24,14 @@ struct StartWorkoutView: View {
     let workout: Array<Any>
     @State var workoutColours = [Color](repeating: .gray, count: Workout.count)
     @State var buttonStates = [String](repeating: "Next Exercise", count: Workout.count)
-    @State var exerciseTime = [Double](repeating: 30.0, count: Workout.count)
+    @State var exerciseTime = [Date](repeating: Date(timeIntervalSinceNow: 30), count: Workout.count)
     @State var exercisePause = [Double](repeating: 30.0, count: Workout.count)
     let height = UIScreen.main.bounds.size.height
     @State private var contentOffset: CGPoint = .zero
     var closeDate = Date(timeIntervalSinceNow: 60.0)
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     @State var timeRemaining: Date = Date(timeIntervalSinceNow: 30)
+    
     
     func determineTime(time:Double) -> Date {
         let timeLeft = Date(timeIntervalSinceNow: time)
@@ -40,15 +41,23 @@ struct StartWorkoutView: View {
     func startTracker() {
         buttonStates[workout.count-1] = "Finish"
         for n in 0...workout.count-1 {
-            exerciseTime[n] = ((workout[n] as! Exercise).time)
+            exerciseTime[n] = determineTime(time: ((workout[n] as! Exercise).time))
         }
         for n in 0...workout.count-1 {
             exercisePause[n] = ((workout[n] as! Exercise).rest)
         }
+        
+        
+        
 //        for n in 0...exercises-1 {
 //            timeRemaining = determineTime(time: exerciseTime[n])
 //        }
-        timeRemaining = determineTime(time: exerciseTime[0])
+//        timeRemaining = determineTime(time: exerciseTime[0])
+//        if timeRemaining.timeIntervalSinceNow > 0 {
+//            print("working")
+//        } else {
+//            print("done")
+//        }
     }
     
     func nextExercise(index: Int, function: String) {
@@ -118,7 +127,8 @@ struct StartWorkoutView: View {
                                         }
                                         Image("workout").cornerRadius(20).scaleEffect(CGSize(width: 1.3, height: 1.3))
                                        
-                                        Text(timeRemaining, style: .relative).foregroundColor(.white).font(.largeTitle).padding(.top, 30)
+                                        Text(exerciseTime[value], style: .relative).foregroundColor(.white).font(.largeTitle).padding(.top, 30)
+                                     
                                         
                                         Button(action: {nextExercise(index: value, function: buttonStates[value])
                                             }) {
@@ -145,4 +155,3 @@ struct StartWorkoutView_Previews: PreviewProvider {
         ])
     }
 }
-
