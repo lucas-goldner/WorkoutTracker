@@ -24,6 +24,8 @@ struct StartWorkoutView: View {
     let workout: Array<Any>
     @State var workoutColours = [Color](repeating: .gray, count: Workout.count)
     @State var buttonStates = [String](repeating: "Next Exercise", count: Workout.count)
+    @State var exerciseTime = [Double](repeating: 30.0, count: Workout.count)
+    @State var exercisePause = [Double](repeating: 30.0, count: Workout.count)
     let height = UIScreen.main.bounds.size.height
     @State private var contentOffset: CGPoint = .zero
     var closeDate = Date(timeIntervalSinceNow: 60.0)
@@ -36,6 +38,13 @@ struct StartWorkoutView: View {
     
     func startTracker() {
         buttonStates[workout.count-1] = "Finish"
+        for n in 0...workout.count-1 {
+            exerciseTime[n] = ((workout[n] as! Exercise).time)
+        }
+        for n in 0...workout.count-1 {
+            exercisePause[n] = ((workout[n] as! Exercise).rest)
+        }
+        print(exerciseTime)
     }
     
     func nextExercise(index: Int, function: String) {
@@ -144,9 +153,9 @@ struct StartWorkoutView: View {
 
 struct StartWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        StartWorkoutView(workout: [Exercise(name: "Pull-up", reps: 10, time: 45.0, rest: 45),
-                                   Exercise(name: "Push-up", reps: 10, time: 30.0, rest: 45),
-                                   Exercise(name: "Sit-up", reps: 20, time: 60.0, rest: 45),
+        StartWorkoutView(workout: [Exercise(name: "Pull-up", reps: 10, time: 45.0, rest: 45.0),
+                                   Exercise(name: "Push-up", reps: 10, time: 30.0, rest: 45.0),
+                                   Exercise(name: "Sit-up", reps: 20, time: 60.0, rest: 45.0),
         ])
     }
 }
