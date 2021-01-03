@@ -21,7 +21,8 @@ import SwiftUI
 
 struct StartWorkoutView: View {
     let workout: Array<Any>
-    var workoutColours = [Color](repeating: .white, count: Workout.count)
+    @State var workoutColours = [Color](repeating: .gray, count: Workout.count)
+    @State var buttonStates = [Bool](repeating: true, count: Workout.count)
     let height = UIScreen.main.bounds.size.height
     @State private var contentOffset: CGPoint = .zero
     var closeDate = Date(timeIntervalSinceNow: 60.0)
@@ -32,11 +33,14 @@ struct StartWorkoutView: View {
     }
     
     func startTracker() {
-        print("Yo")
+        buttonStates[workout.count-1] = false
     }
     
-    func nextExercise() {
-        
+    func nextExercise(index: Int) {
+        workoutColours[index] = .white
+        if(index==workout.count-1){
+            
+        }
         if(height == 896) {
             self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-170))
         } else if(height == 844.0) {
@@ -79,7 +83,7 @@ struct StartWorkoutView: View {
                     ForEach(0 ..< Workout.count) { value in
                         Rectangle().frame(width: 10, height: barHeight(bars: workout.count), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(50).foregroundColor(workoutColours[value])
                     }
-                }.padding(.top, -50)
+                }.padding(.top, -150)
                 
                 ScrollableView(self.$contentOffset, animationDuration: 0.5) {
                     VStack(spacing: 5) {
@@ -111,10 +115,13 @@ struct StartWorkoutView: View {
                                         Image("workout").cornerRadius(20).scaleEffect(CGSize(width: 1.3, height: 1.3))
                                        
                                         Text(determineTime(time: ((workout[value] as! Exercise).time)), style: .relative).foregroundColor(.white).font(.largeTitle).padding(.top, 30)
-                                        Button(action: {nextExercise()
-                                        }) {
-                                            Text("Next Exercise").foregroundColor(.white)
-                                        }.padding(.all, 20).padding(.horizontal, 80).background(Color.green).cornerRadius(20)
+                               
+                                 
+                                            Button(action: {nextExercise(index: value)
+                                            }) {
+                                                Text("Next Exercise").foregroundColor(.white)
+                                            }.padding(.all, 20).padding(.horizontal, 80).background(Color.green).cornerRadius(20).opacity(buttonStates[value] ? 1 : 0)
+                                        
                                     }
                                 }
                             }
@@ -123,7 +130,7 @@ struct StartWorkoutView: View {
                 }
             }
         }.onAppear {
-        startTracker()}
+            startTracker()}
     }
 }
 

@@ -85,8 +85,8 @@
 		4D472A36259BC9B600730564 /* SwiftUIViews */ = {
 			isa = PBXGroup;
 			children = (
-				4D472A37259BC9D000730564 /* WorkoutSelectView.swift */,
 				4DA0C34F259D1F4600CAD48A /* StartWorkoutView.swift */,
+				4D472A37259BC9D000730564 /* WorkoutSelectView.swift */,
 				4DA0C352259D25F100CAD48A /* ScrollableView.swift */,
 			);
 			path = SwiftUIViews;
