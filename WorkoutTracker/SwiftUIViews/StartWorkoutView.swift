@@ -22,7 +22,7 @@ import SwiftUI
 struct StartWorkoutView: View {
     let workout: Array<Any>
     @State var workoutColours = [Color](repeating: .gray, count: Workout.count)
-    @State var buttonStates = [Bool](repeating: true, count: Workout.count)
+    @State var buttonStates = [String](repeating: "Next Exercise", count: Workout.count)
     let height = UIScreen.main.bounds.size.height
     @State private var contentOffset: CGPoint = .zero
     var closeDate = Date(timeIntervalSinceNow: 60.0)
@@ -33,13 +33,13 @@ struct StartWorkoutView: View {
     }
     
     func startTracker() {
-        buttonStates[workout.count-1] = false
+        buttonStates[workout.count-1] = "Finish"
     }
     
     func nextExercise(index: Int) {
         workoutColours[index] = .white
-        if(index==workout.count-1){
-            
+        if(index==workout.count-2){
+            workoutColours[workout.count-1] = .white
         }
         if(height == 896) {
             self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-170))
@@ -119,8 +119,8 @@ struct StartWorkoutView: View {
                                  
                                             Button(action: {nextExercise(index: value)
                                             }) {
-                                                Text("Next Exercise").foregroundColor(.white)
-                                            }.padding(.all, 20).padding(.horizontal, 80).background(Color.green).cornerRadius(20).opacity(buttonStates[value] ? 1 : 0)
+                                                Text(buttonStates[value]).foregroundColor(.white)
+                                            }.padding(.all, 20).padding(.horizontal, 80).background(Color.green).cornerRadius(20)
                                         
                                     }
                                 }
