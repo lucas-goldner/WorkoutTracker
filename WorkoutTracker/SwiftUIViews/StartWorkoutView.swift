@@ -36,15 +36,19 @@ struct StartWorkoutView: View {
         buttonStates[workout.count-1] = "Finish"
     }
     
-    func nextExercise(index: Int) {
-        workoutColours[index] = .white
-        if(index==workout.count-2){
-            workoutColours[workout.count-1] = .white
-        }
-        if(height == 896) {
-            self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-170))
-        } else if(height == 844.0) {
-            self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-100))
+    func nextExercise(index: Int, function: String) {
+        if(function == "Next Exercise"){
+            workoutColours[index] = .white
+            if(index==workout.count-2){
+                workoutColours[workout.count-1] = .white
+            }
+            if(height == 896) {
+                self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-170))
+            } else if(height == 844.0) {
+                self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-100))
+            }
+        } else {
+            print("Finish")
         }
     }
     
@@ -117,7 +121,7 @@ struct StartWorkoutView: View {
                                         Text(determineTime(time: ((workout[value] as! Exercise).time)), style: .relative).foregroundColor(.white).font(.largeTitle).padding(.top, 30)
                                
                                  
-                                            Button(action: {nextExercise(index: value)
+                                        Button(action: {nextExercise(index: value, function: buttonStates[value])
                                             }) {
                                                 Text(buttonStates[value]).foregroundColor(.white)
                                             }.padding(.all, 20).padding(.horizontal, 80).background(Color.green).cornerRadius(20)
