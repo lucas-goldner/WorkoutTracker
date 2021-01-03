@@ -30,7 +30,7 @@ struct StartWorkoutView: View {
     @State private var contentOffset: CGPoint = .zero
     var closeDate = Date(timeIntervalSinceNow: 60.0)
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    
+    @State var timeRemaining: Date = Date(timeIntervalSinceNow: 30)
     
     func determineTime(time:Double) -> Date {
         let timeLeft = Date(timeIntervalSinceNow: time)
@@ -45,7 +45,10 @@ struct StartWorkoutView: View {
         for n in 0...workout.count-1 {
             exercisePause[n] = ((workout[n] as! Exercise).rest)
         }
-        print(exerciseTime)
+//        for n in 0...exercises-1 {
+//            timeRemaining = determineTime(time: exerciseTime[n])
+//        }
+        timeRemaining = determineTime(time: exerciseTime[0])
     }
     
     func nextExercise(index: Int, function: String) {
@@ -65,23 +68,6 @@ struct StartWorkoutView: View {
             print("Finish")
         }
     }
-    
-    func eachSecond() {
-//      seconds += 1
-//      updateDisplay()
-    }
-    
-//    private func updateDisplay() {
-//      let formattedDistance = FormatDisplay.distance(distance)
-//      let formattedTime = FormatDisplay.time(seconds)
-//      let formattedPace = FormatDisplay.pace(distance: distance,
-//                                             seconds: seconds,
-//                                             outputUnit: UnitSpeed.minutesPerMile)
-//
-//      distanceLabel.text = "\(formattedDistance)"
-//      timeLabel.text = "\(formattedTime)"
-//      paceLabel.text = "\(formattedPace)"
-//    }
     
     func barHeight(bars: Int) -> CGFloat {
         if(bars<=3){
@@ -132,9 +118,7 @@ struct StartWorkoutView: View {
                                         }
                                         Image("workout").cornerRadius(20).scaleEffect(CGSize(width: 1.3, height: 1.3))
                                        
-                                        Text(determineTime(time: ((workout[value] as! Exercise).time)), style: .relative).foregroundColor(.white).font(.largeTitle).padding(.top, 30)
-                               
-                                        
+                                        Text(timeRemaining, style: .relative).foregroundColor(.white).font(.largeTitle).padding(.top, 30)
                                         
                                         Button(action: {nextExercise(index: value, function: buttonStates[value])
                                             }) {
