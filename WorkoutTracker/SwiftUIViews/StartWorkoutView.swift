@@ -31,6 +31,7 @@ struct StartWorkoutView: View {
     var closeDate = Date(timeIntervalSinceNow: 60.0)
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
+    
     func determineTime(time:Double) -> Date {
         let timeLeft = Date(timeIntervalSinceNow: time)
         return timeLeft
@@ -133,7 +134,8 @@ struct StartWorkoutView: View {
                                        
                                         Text(determineTime(time: ((workout[value] as! Exercise).time)), style: .relative).foregroundColor(.white).font(.largeTitle).padding(.top, 30)
                                
-                                 
+                                        
+                                        
                                         Button(action: {nextExercise(index: value, function: buttonStates[value])
                                             }) {
                                                 Text(buttonStates[value]).foregroundColor(.white)
