@@ -18,6 +18,7 @@
 //                                }
 
 import SwiftUI
+import UIKit
 
 struct StartWorkoutView: View {
     let workout: Array<Any>
@@ -26,6 +27,7 @@ struct StartWorkoutView: View {
     let height = UIScreen.main.bounds.size.height
     @State private var contentOffset: CGPoint = .zero
     var closeDate = Date(timeIntervalSinceNow: 60.0)
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
     func determineTime(time:Double) -> Date {
         let timeLeft = Date(timeIntervalSinceNow: time)
@@ -48,6 +50,8 @@ struct StartWorkoutView: View {
                 self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-100))
             }
         } else {
+            guard let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            appDelegate.switchBack()
             print("Finish")
         }
     }

@@ -11,7 +11,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="WorkoutTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="BYZ-38-t0r" customClass="HomeViewController" customModule="WorkoutTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,6 +33,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xZY-TI-RiW"/>
                     <connections>
                         <outlet property="StartStyle" destination="H5H-an-SVX" id="lHd-Jj-hU1"/>
                     </connections>
@@ -44,12 +45,12 @@
         <!--Hosting Controller-->
         <scene sceneID="RlV-km-m2P">
             <objects>
-                <hostingController modalPresentationStyle="fullScreen" id="uVm-Fh-7gC" sceneMemberID="viewController">
+                <hostingController storyboardIdentifier="Hosting" modalPresentationStyle="fullScreen" id="uVm-Fh-7gC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="t2t-HP-uH2"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2P-cM-3fJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="861" y="96"/>
+            <point key="canvasLocation" x="952" y="94"/>
         </scene>
     </scenes>
     <resources>
