@@ -24,26 +24,34 @@ struct StartWorkoutView: View {
     let workout: Array<Any>
     @State var workoutColours = [Color](repeating: .gray, count: Workout.count)
     @State var buttonStates = [String](repeating: "Next Exercise", count: Workout.count)
-//    @State var exerciseTime = [Date](repeating: Calendar.current.date(byAdding: .second, value: 15, to: Date())!, count: Workout.count)
-//    @State var exerciseTimers = [TimerViewModel](repeating: TimerViewModel(), count: Workout.count)
-    @State private var exerciseTime = Calendar.current.date(byAdding: .second, value: 15, to: Date())!
-    @StateObject private var timer = TimerViewModel()
+    //@State var exerciseTime = [Date](repeating: Date(timeIntervalSinceNow: 30), count: Workout.count)
     @State var exercisePause = [Double](repeating: 30.0, count: Workout.count)
     let height = UIScreen.main.bounds.size.height
     @State private var contentOffset: CGPoint = .zero
     var closeDate = Date(timeIntervalSinceNow: 60.0)
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     @State var timeRemaining: Date = Date(timeIntervalSinceNow: 30)
-    @State private var run = false
+    
+    var currentIndex = 0
+    @State private var exerciseTime = Calendar.current.date(byAdding: .second, value: 15, to: Date())!
+    @StateObject private var timer = TimerViewModel()
+    
+    func determineTime(time:Double) -> Date {
+        let timeLeft = Date(timeIntervalSinceNow: time)
+        return timeLeft
+    }
     
     func startTracker() {
         buttonStates[workout.count-1] = "Finish"
 //        for n in 0...workout.count-1 {
-//            exerciseTime[n] = Calendar.current.date(byAdding: .second, value: Int(((workout[n] as! Exercise).time)), to: Date())!
+//            exerciseTime[n] = determineTime(time: ((workout[n] as! Exercise).time))
 //        }
         for n in 0...workout.count-1 {
             exercisePause[n] = ((workout[n] as! Exercise).rest)
         }
+        
+        
+        
 //        for n in 0...exercises-1 {
 //            timeRemaining = determineTime(time: exerciseTime[n])
 //        }
@@ -121,24 +129,16 @@ struct StartWorkoutView: View {
                                             }.padding(.trailing, -110)
                                         }
                                         Image("workout").cornerRadius(20).scaleEffect(CGSize(width: 1.3, height: 1.3))
-                                        Group {
-                                                    if timer.currentDate < exerciseTime {
-                                                        Text(exerciseTime, style: .relative)
-                                                        
-                                                    } else {
-                                                        Text("0 sec")
-                                                    }
-                                                }
-                                                .foregroundColor(.white)
-                                                .font(.largeTitle)
-                                                .padding(.top, 30)
-                                                .onAppear {
-                                                    timer.start(endDate: exerciseTime)
-                                                }
-                                        Button(action: {nextExercise(index: value, function: buttonStates[value])
-                                            }) {
-                                                Text(buttonStates[value]).foregroundColor(.white)
-                                            }.padding(.all, 20).padding(.horizontal, 80).background(Color.green).cornerRadius(20)
+                                        
+                                        if currentIndex == value {
+                                            
+                                        } else {
+                                            
+                                        }
+                                        
+                                      
+                                        
+                                      
                                         
                                     }
                                 }
@@ -150,6 +150,28 @@ struct StartWorkoutView: View {
             
         }.onAppear {
             startTracker()}
+        VStack {
+            Group {
+                if timer.currentDate < exerciseTime {
+                        Text(exerciseTime, style: .relative)
+                    } else {
+                        Text("0 sec")
+                        }
+                    }
+                    .foregroundColor(.black)
+                    .font(.largeTitle)
+                    .padding(.top, 30)
+                    .onAppear {
+                        timer.start(endDate: exerciseTime)
+                    }
+            
+            Button(action: {nextExercise(index: 0, function: buttonStates[0])
+            }) {
+                Text(buttonStates[0]).foregroundColor(.white)
+            }.padding(.all, 20).padding(.horizontal, 80).background(Color.green).cornerRadius(20)
+        }
+        
+       
     }
 }
 
