@@ -14,6 +14,8 @@
 		4D472A29259BC5D900730564 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D472A27259BC5D900730564 /* LaunchScreen.storyboard */; };
 		4D472A32259BC6A700730564 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D472A31259BC6A700730564 /* HomeViewController.swift */; };
 		4D472A38259BC9D000730564 /* WorkoutSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D472A37259BC9D000730564 /* WorkoutSelectView.swift */; };
+		4D8644D525A2986900485DD7 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644D425A2986900485DD7 /* TimerViewModel.swift */; };
+		4D8644DC25A298E000485DD7 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8644DB25A298E000485DD7 /* TestView.swift */; };
 		4DA0C350259D1F4600CAD48A /* StartWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA0C34F259D1F4600CAD48A /* StartWorkoutView.swift */; };
 		4DA0C353259D25F100CAD48A /* ScrollableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA0C352259D25F100CAD48A /* ScrollableView.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +30,8 @@
 		4D472A2A259BC5D900730564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D472A31259BC6A700730564 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4D472A37259BC9D000730564 /* WorkoutSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSelectView.swift; sourceTree = "<group>"; };
+		4D8644D425A2986900485DD7 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		4D8644DB25A298E000485DD7 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4DA0C34F259D1F4600CAD48A /* StartWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutView.swift; sourceTree = "<group>"; };
 		4DA0C352259D25F100CAD48A /* ScrollableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +92,8 @@
 				4DA0C34F259D1F4600CAD48A /* StartWorkoutView.swift */,
 				4D472A37259BC9D000730564 /* WorkoutSelectView.swift */,
 				4DA0C352259D25F100CAD48A /* ScrollableView.swift */,
+				4D8644D425A2986900485DD7 /* TimerViewModel.swift */,
+				4D8644DB25A298E000485DD7 /* TestView.swift */,
 			);
 			path = SwiftUIViews;
 			sourceTree = "<group>";
@@ -162,9 +168,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D8644D525A2986900485DD7 /* TimerViewModel.swift in Sources */,
 				4D472A1D259BC5D900730564 /* AppDelegate.swift in Sources */,
 				4DA0C353259D25F100CAD48A /* ScrollableView.swift in Sources */,
 				4D472A1F259BC5D900730564 /* SceneDelegate.swift in Sources */,
+				4D8644DC25A298E000485DD7 /* TestView.swift in Sources */,
 				4D472A32259BC6A700730564 /* HomeViewController.swift in Sources */,
 				4DA0C350259D1F4600CAD48A /* StartWorkoutView.swift in Sources */,
 				4D472A38259BC9D000730564 /* WorkoutSelectView.swift in Sources */,
