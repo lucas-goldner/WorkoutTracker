@@ -56,13 +56,14 @@ struct StartWorkoutView: View {
     
     func nextExercise(function: String) {
         if(function == "Next Exercise"){
+            currentIndex = currentIndex + 1;
             workoutColours[currentIndex] = .white
             exerciseTime =  Calendar.current.date(byAdding: .second, value: Int(((workout[currentIndex] as! Exercise).time)), to: Date())!
             timer.start(endDate: exerciseTime)
             if(height == 896) {
-                self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-170))
+                self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-335))
             } else if(height == 844.0) {
-                self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-100))
+                self.contentOffset = CGPoint(x: 0, y: self.contentOffset.y + (height-285))
             }
         } else {
             guard let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -147,8 +148,7 @@ struct StartWorkoutView: View {
                                Text(exerciseTime, style: .relative)
                            } else {
                             Text("0 sec").onAppear(perform: {
-                                currentIndex = currentIndex + 1;
-                                if(currentIndex != workout.count){
+                                if(currentIndex <= workout.count){
                                     nextExercise( function: "Next Exercise")
                                 } else  {
                                     nextExercise( function: "Finish")
@@ -164,7 +164,7 @@ struct StartWorkoutView: View {
                                timer.start(endDate: exerciseTime)
                            }
                    
-                   Button(action: {nextExercise(function: buttonStates[0])
+                   Button(action: {nextExercise(function: buttonStates[currentIndex])
                    }) {
                        Text(buttonStates[currentIndex]).foregroundColor(.white)
                    }.padding(.all, 20).padding(.horizontal, 80).background(Color.green).cornerRadius(20)
