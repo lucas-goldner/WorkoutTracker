@@ -120,23 +120,30 @@ struct StartWorkoutView: View {
                                             }.padding(.trailing, -110)
                                         }
                                         Image("workout").cornerRadius(20).scaleEffect(CGSize(width: 1.3, height: 1.3))
-                                        
-                                        if currentIndex == value {
-                                            
-                                        } else {
-                                            
-                                        }
-                                        
-                                      
-                                        
-                                      
-                                        
                                     }
                                 }
                             }
                         }
                     }
-                }
+                }.gesture(
+                    DragGesture().onChanged { value in
+                       if value.translation.height > 0 {
+                          print("Scroll down")
+                        if value.translation.height > 8 {
+                            if(currentIndex != workout.count-1){
+                                currentIndex = currentIndex + 1
+                            }
+                        }
+                       } else {
+                          print("Scroll up")
+                        if value.translation.height > -12 {
+                            if(currentIndex < 0){
+                                currentIndex - 1
+                            }
+                         }
+                       }
+                    }
+                 )
             }
             
         }.onAppear {
